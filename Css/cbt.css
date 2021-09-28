@@ -1,0 +1,45 @@
+.link-modal{
+    background-color: rgba(0,0,0,0.4);
+    height: 100vh;
+    display: flex;
+    align-items: center;justify-content: center;
+}
+.link-modal > div{
+    /*margin: auto;*/
+    width: 500px;background-color: #fff;
+    padding: 20px 5%;
+    box-shadow: 0px 1px 17px 1px rgba(170, 170, 170, 1);
+    border-radius: 10px;
+}
+.link-modal p{margin: 8px}
+.cbtLinkInput{
+    height: 40px; width:280px;
+    border-width: 1px;border-color: #811eb8;
+    border-right-width: 0px;
+    float:left;padding-left: 5px;
+    outline: none;
+}
+.cbtLinkSpan{
+    border: 1px solid #811eb8;
+    border-left-width: 0px;
+    padding:4px;
+    height: 40px;
+    float:left;
+}
+.cbtLinkSpan > button{
+    padding: 3px 25px;height: 30px;
+    border-top-left-radius: 25px;
+    border-width: 0px; color: #fff;background-color: #811eb8;
+    cursor: pointer;
+}
+.orParagraph{padding-left: 50px;}
+.orParagraph > span{float: left;}
+.orParagraph > span:not(:nth-child(2)){
+    margin: 7px 10px 0px;
+    height: 3px; background-color: #811eb8;
+    width: 100px;
+}
+.btn-purple{
+    color: #fff;
+    background-color: #811eb8;border-width: 0px;
+}
