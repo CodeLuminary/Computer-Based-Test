@@ -3,6 +3,7 @@
     height: 100vh;
     display: flex;
     align-items: center;justify-content: center;
+    position: fixed;
 }
 .link-modal > div{
     /*margin: auto;*/
@@ -43,3 +44,11 @@
     color: #fff;
     background-color: #811eb8;border-width: 0px;
 }
+.navbar{
+    padding: 15px 5%;
+    border-bottom: 1px solid #d9d9d9;
+}
+.navbar > span:first-child{font-size: 35px; color:#811eb8;font-weight: bold;}
+.navbar > sub{color: #41aeb5;font-weight: bold;}
+#timerSpan{float: right}
+.navbar > span:last-child{margin-top: 10px;font-size: 25px;}

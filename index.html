@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="Css/cbt.css"/>
     </head>
     <body>
-        <div class="col-12 link-modal">
+        <div class="col-12 link-modal" id="link-modal">
             <div>
                 <span>Enter cbt link</span><br>
                 <p class="col-12">
@@ -19,11 +19,16 @@
                     <span></span>
                 </p>
                 <p style="text-align:center">
-                    <button class="btn btn-purple">Answer Default Questions</button>
+                    <button class="btn btn-purple" onclick="showCbt()">Answer Default Questions</button>
                 </p>
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-12 mainContent">
+            <div class="col-12 navbar">
+                <span>CBT</span><sub>By Ijoni victor</sub>
+                <span id="timerSpan">1 : 1 : 0</span>
+            </div>
         </div>
+        <script src="Js/Shared/app.js"></script>
     </body>
 </html>
