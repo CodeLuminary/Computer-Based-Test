@@ -45,10 +45,36 @@
     background-color: #811eb8;border-width: 0px;
 }
 .navbar{
-    padding: 15px 5%;
+    padding: 15px 5%;position: fixed;
     border-bottom: 1px solid #d9d9d9;
 }
 .navbar > span:first-child{font-size: 35px; color:#811eb8;font-weight: bold;}
 .navbar > sub{color: #41aeb5;font-weight: bold;}
 #timerSpan{float: right}
 .navbar > span:last-child{margin-top: 10px;font-size: 25px;}
+.content{padding: 80px 5% 0px;background-color: #f2f2f2;height: 100vh;}
+.content > div{
+    padding: 10px;
+}
+.content > div > div{
+    border-radius: 5px;
+    background-color: #fff;
+}
+.content > div:last-child > div{
+    padding: 40px;
+}
+#questionDiv{
+    height: 250px;
+    border: 1px solid #d9d9d9;
+    overflow-y: scroll;
+}
+#questionsButton{
+    border-top: 1px solid #f2f2f2
+}
+.content > div:first-child > div{padding: 0px 10px 10px}
+.content > div:first-child > div > div{
+    text-align: center;padding: 20px 10px;
+}
+.content > div:first-child > div img{
+    width: 150px;border: 1px solid #f2f2f2;
+}
