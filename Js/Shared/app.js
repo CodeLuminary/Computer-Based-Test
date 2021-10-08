@@ -4,7 +4,7 @@ var exam = {
     "instruction": "Please answer all questions and do not waste time with any question because some are harder than the others",
     "questions":[
         {
-            "question": "Who is the current president of the United states",
+            "question": "Who is the current president of the United states?",
             "options": ["Muhammedu Buhari","Vlamir Putin", "Joe Biden"],
             "answerPosition": 3
         },
@@ -28,8 +28,16 @@ var exam = {
 var examLength = exam.duration; //Exam length in minutes
 var sec = 0;
 var timerObject;
+var questionDiv = document.getElementById("questionDiv");
+var optionDiv = document.getElementById("optionDiv");
+var questionsButton = document.getElementById("questionsButton");
 function showCbt(){
     document.getElementById("link-modal").style.display = "none";
+    questionsButton.innerHTML = "";
+    for(var i = 0; i < exam.questions.length; i++){
+        questionsButton.innerHTML += '<button class="qbtn" onclick="return showQuestion('+i.toString()+')">'+(i + 1).toString()+'</button>'
+    }
+    showQuestion(0);
     timerObject = setInterval(runTimer,999);
 }
 function runTimer(){  
@@ -48,4 +56,11 @@ function runTimer(){
     var hour = Math.floor(examLength / 60);
     var min = examLength % 60;
     document.getElementById("timerSpan").innerHTML = hour.toString() + " : " + min.toString() + " : " + sec.toString();
+}
+function showQuestion(questionNumber){
+    questionDiv.innerHTML = exam.questions[questionNumber].question;
+    optionDiv.innerHTML = "";
+    for(var i = 0; i < exam.questions[questionNumber].options.length; i++){
+        optionDiv.innerHTML += '<input type="radio" name="questionOptions"/>' + exam.questions[questionNumber].options[i].toString() + '<br>';
+    }
 }
