@@ -1,4 +1,5 @@
 //This is an example of a json data
+//NB: The questions are supposed to be served from an api not added in the javascript
 var exam = {
     "duration": 61,
     "instruction": "Please answer all questions and do not waste time with any question because some are harder than the others",
@@ -28,9 +29,13 @@ var exam = {
 var examLength = exam.duration; //Exam length in minutes
 var sec = 0;
 var timerObject;
+
 var questionDiv = document.getElementById("questionDiv");
 var optionDiv = document.getElementById("optionDiv");
 var questionsButton = document.getElementById("questionsButton");
+
+var answers = [];
+
 function showCbt(){
     document.getElementById("link-modal").style.display = "none";
     questionsButton.innerHTML = "";
@@ -61,6 +66,10 @@ function showQuestion(questionNumber){
     questionDiv.innerHTML = exam.questions[questionNumber].question;
     optionDiv.innerHTML = "";
     for(var i = 0; i < exam.questions[questionNumber].options.length; i++){
-        optionDiv.innerHTML += '<input type="radio" name="questionOptions"/>' + exam.questions[questionNumber].options[i].toString() + '<br>';
+        optionDiv.innerHTML += '<input type="radio" onclick="selectAnswer('+questionNumber+','+(i + 1).toString()+')" name="questionOptions"/>' + exam.questions[questionNumber].options[i].toString() + '<br>';
     }
+}
+function selectAnswer(questionNumber,optionNumber){
+  answers[questionNumber] = optionNumber;
+  document.querySelectorAll("#questionsButton > button")[questionNumber].className += " blueHightlight";
 }
