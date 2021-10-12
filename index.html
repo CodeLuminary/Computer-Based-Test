@@ -36,7 +36,8 @@
                         </div>
                         <p>Name: <span id="userName"></span</p>
                         <p>Email: <span id="emailName"></span</p> 
-                        <p>Phone number: <span id="phoneNumber"></span</p>
+                        <p>Phone number: <span id="phoneNumber"></span</p><br>
+                        <a class="instructionLink" onclick="showInstruction()">View instructions</a>
                     </div>
                 </div>
                 <div class="col-9">
@@ -51,7 +52,14 @@
                 </div>
             </div>
         </div>
-        
+
+        <div id="myModal" class="modal">
+        <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="instructions"></div>
+            </div>
+        </div>
         <script src="Js/Shared/app.js"></script>
     </body>
 </html>

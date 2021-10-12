@@ -73,3 +73,11 @@ function selectAnswer(questionNumber,optionNumber){
   answers[questionNumber] = optionNumber;
   document.querySelectorAll("#questionsButton > button")[questionNumber].className += " blueHightlight";
 }
+var modal = document.querySelector(".modal");
+function showInstruction(){
+    document.querySelector("#instructions").innerHTML = exam.instruction;
+    modal.style.display = "block";
+}
+function closeModal(){
+    modal.style.display = "none";
+}
