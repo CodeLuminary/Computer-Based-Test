@@ -81,3 +81,27 @@ function showInstruction(){
 function closeModal(){
     modal.style.display = "none";
 }
+function callApi(){
+    ajaxApi(document.getElementById("cbtLink").value);
+}
+function ajaxApi(url){
+    document.getElementById("link-modal").style.display = "none";
+    modal.style.display = "block";
+    document.querySelector(".modal-content").style.display = "none";
+    document.querySelector(".loader2").style.display = "block";
+
+    let xhhtp = new XMLHttpRequest();
+    xhhtp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            modal.style.display = "none";
+            document.querySelector(".modal-content").style.display = "block";
+            document.querySelector(".loader2").style.display = "none";
+
+            alert(xhhtp.responseText);
+            exam = JSON.Parse(xhhtp.responseText);
+        }
+    }
+    xhhtp.open("GET", url, true);
+    xhhtp.send();
+}
