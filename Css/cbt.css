@@ -149,3 +149,6 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+  .currentQuestion{
+      background-color: #811eb8 !important;color: #fff
+  }

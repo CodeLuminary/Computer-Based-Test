@@ -68,6 +68,11 @@ function showQuestion(questionNumber){
     for(var i = 0; i < exam.questions[questionNumber].options.length; i++){
         optionDiv.innerHTML += '<input type="radio" onclick="selectAnswer('+questionNumber+','+(i + 1).toString()+')" name="questionOptions"/>' + exam.questions[questionNumber].options[i].toString() + '<br>';
     }
+    const questionButton =   document.querySelectorAll("#questionsButton > button");
+    for(let i = 0; i < questionButton.length; i++){
+        questionButton[i].classList.remove("currentQuestion");
+    }
+    questionButton[questionNumber].classList.add("currentQuestion");
 }
 function selectAnswer(questionNumber,optionNumber){
   answers[questionNumber] = optionNumber;
