@@ -45,7 +45,7 @@
     background-color: #811eb8;border-width: 0px;
 }
 .navbar{
-    padding: 15px 5%;position: fixed;
+    padding: 15px 5%;position: fixed; 
     border-bottom: 1px solid #d9d9d9;
 }
 .navbar > span:first-child{font-size: 35px; color:#811eb8;font-weight: bold;}
@@ -59,6 +59,7 @@
 .content > div > div{
     border-radius: 5px;
     background-color: #fff;
+    border: 1px solid #d9d9d9;
 }
 .content > div:last-child > div{
     padding: 40px;
@@ -151,4 +152,23 @@
   }
   .currentQuestion{
       background-color: #811eb8 !important;color: #fff
+  }
+  .pSubmit{text-align:center}
+  .pSubmit button{
+      padding: 10px 20px;cursor:pointer;
+      background-color: #41aeb5;border: 1px solid #41aeb5;
+      color: #fff;border-radius: 20px;
+  }
+  #instructions{text-align:center;padding: 20px 6%;font-size: 22px;color: #41aeb5}
+  #instructions p{
+      margin: 5px;
+  }
+  .par-btn button{
+      margin-right: 10px;cursor:pointer;margin-top: 30px;
+      background-color: #811eb8;color: #fff;
+      padding: 10px 20px; border: 1px solid #811eb8;
+      border-radius: 8px;
+  }
+  .par-btn button:hover{
+      background:transparent; border: 2px solid #811eb8;color: #811eb8;
   }

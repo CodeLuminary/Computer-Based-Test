@@ -7,7 +7,7 @@ var exam = {
         {
             "question": "Who is the current president of the United states?",
             "options": ["Muhammedu Buhari","Vlamir Putin", "Joe Biden"],
-            "answerPosition": 3
+            "answerPosition": 2
         },
         {
             "question": "How many countries are in the world?",
@@ -26,7 +26,7 @@ var exam = {
         }
     ]
 }
-var examLength = exam.duration; //Exam length in minutes
+
 var sec = 0;
 var timerObject;
 
@@ -34,13 +34,15 @@ var questionDiv = document.getElementById("questionDiv");
 var optionDiv = document.getElementById("optionDiv");
 var questionsButton = document.getElementById("questionsButton");
 
-var answers = [];
+var answers = [];var examLength;
 
 function showCbt(){
     document.getElementById("link-modal").style.display = "none";
-    questionsButton.innerHTML = "";
+    document.querySelector(".navbar").style.backgroundColor="#fff";
+    questionsButton.innerHTML = "";examLength = exam.duration; //Exam length in minutes
     for(var i = 0; i < exam.questions.length; i++){
-        questionsButton.innerHTML += '<button class="qbtn" onclick="return showQuestion('+i.toString()+')">'+(i + 1).toString()+'</button>'
+        questionsButton.innerHTML += '<button class="qbtn" onclick="return showQuestion('+i.toString()+')">'+(i + 1).toString()+'</button>';
+        answers[i] = -1;
     }
     showQuestion(0);
     timerObject = setInterval(runTimer,999);
@@ -52,7 +54,7 @@ function runTimer(){
             sec = 59;
         }
         else{
-            clearInterval(timerObject);
+            submitExam();
         }
     }
     else{
@@ -66,7 +68,7 @@ function showQuestion(questionNumber){
     questionDiv.innerHTML = exam.questions[questionNumber].question;
     optionDiv.innerHTML = "";
     for(var i = 0; i < exam.questions[questionNumber].options.length; i++){
-        optionDiv.innerHTML += '<input type="radio" onclick="selectAnswer('+questionNumber+','+(i + 1).toString()+')" name="questionOptions"/>' + exam.questions[questionNumber].options[i].toString() + '<br>';
+        optionDiv.innerHTML += '<input type="radio" onclick="selectAnswer('+questionNumber+','+ i.toString()+')" name="questionOptions"/>' + exam.questions[questionNumber].options[i].toString() + '<br>';
     }
     const questionButton =   document.querySelectorAll("#questionsButton > button");
     for(let i = 0; i < questionButton.length; i++){
@@ -77,6 +79,7 @@ function showQuestion(questionNumber){
 function selectAnswer(questionNumber,optionNumber){
   answers[questionNumber] = optionNumber;
   document.querySelectorAll("#questionsButton > button")[questionNumber].className += " blueHightlight";
+  answer[questionNumber] = optionNumber;
 }
 var modal = document.querySelector(".modal");
 function showInstruction(){
@@ -98,7 +101,6 @@ function ajaxApi(url){
     let xhhtp = new XMLHttpRequest();
     xhhtp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-
             modal.style.display = "none";
             document.querySelector(".modal-content").style.display = "block";
             document.querySelector(".loader2").style.display = "none";
@@ -109,4 +111,22 @@ function ajaxApi(url){
     }
     xhhtp.open("GET", url, true);
     xhhtp.send();
+}
+function promptUser(){
+    var instructionPar = document.querySelector("#instructions");
+    instructionPar.innerHTML = "<p>Are you sure you want to end this exam?</p>";
+    instructionPar.innerHTML += "<p class='par-btn'><button onclick='submitExam()'>Yes</button><button onclick='closeModal()'>No</button></p>"
+    modal.style.display = "block";
+}
+function submitExam(){
+    clearInterval(timerObject);
+    modal.style.display = "none";
+     var score = 0;
+    for(var i = 0; i < exam.questions.length; i++){
+        if(answers[i] == exam.questions[i].answerPosition){
+            score++;
+        }    
+    }
+    document.querySelector(".content > div:last-child > div").innerHTML = "Your exam have ended";
+    document.querySelector(".total").innerHTML = "Total Score: " + score.toString();
 }
