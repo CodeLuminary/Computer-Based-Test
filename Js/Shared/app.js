@@ -75,6 +75,12 @@ function showQuestion(questionNumber){
         questionButton[i].classList.remove("currentQuestion");
     }
     questionButton[questionNumber].classList.add("currentQuestion");
+
+    //Select option state tracking algorithm
+    if(answers[questionNumber] != -1){
+        var questionOptions = document.querySelectorAll("#optionDiv > input");
+        questionOptions[answers[questionNumber]].checked = true;
+    }
 }
 function selectAnswer(questionNumber,optionNumber){
   answers[questionNumber] = optionNumber;
