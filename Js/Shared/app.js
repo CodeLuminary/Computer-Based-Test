@@ -111,8 +111,9 @@ function ajaxApi(url){
             document.querySelector(".modal-content").style.display = "block";
             document.querySelector(".loader2").style.display = "none";
 
-            alert(xhhtp.responseText);
+            //alert(xhhtp.responseText);
             exam = JSON.Parse(xhhtp.responseText);
+            showCbt();
         }
     }
     xhhtp.open("GET", url, true);
